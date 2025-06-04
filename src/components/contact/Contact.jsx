@@ -45,14 +45,13 @@ const Contact = () => {
               <input type="text" name="subject" className="contact__form-input" 
               placeholder='Insert your Subject'/>
             </div>
-            <div className="contact__form-div">
+            <div className="contact__form-div contact__form-textarea">
               <textarea name="message" id="" cols="30" rows="10" 
                 className='contact__form-input' placeholder='Write your message'>
               </textarea>
             </div>
-
-            <button type="submit" className='btn'>Send Message</button>
           </div>
+          <button type="submit" className='btn'>Send Message</button>
         </form> 
       </div>
     </section>

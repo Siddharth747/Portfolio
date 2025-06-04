@@ -1,39 +1,109 @@
 .contact.section {
-    padding-bottom: 6.25rem;
+  padding-bottom: 6.25rem;
 }
 
 .contact__container {
-    grid-template-columns: 4fr 8fr;
-    column-gap: 1.875rem;
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  column-gap: 1.875rem;
 }
 
-.contact__title{
-    font-size: var(--h3-font-size);
-    margin-bottom: 0.5rem;
+.contact__title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.5rem;
 }
 
-.contact__form-group{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 1.5rem;
+.contact__form-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1.5rem;
 }
 
-.contact__form-div{
-    position:relative;
-    margin-bottom: 1.875rem;
-    height: 3.75rem;
+.contact__form-div {
+  position: relative;
+  margin-bottom: 1.875rem;
+  height: 3.75rem; /* Keep fixed height for inputs */
 }
 
-.contact__form-input{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: var(--shadow);
-    background-color: var(--container-color);
-    color: var(--text-color);
-    border: none;
-    outline: none;
-    border-radius: var(--border-radius);
-    padding: 0.625rem 1.875rem;
+/* Special styling for textarea container */
+.contact__form-textarea {
+  height: auto;       /* Let textarea container expand */
+  margin-bottom: 2rem; /* Add some spacing below textarea */
+  position: relative;  /* Keep relative for proper stacking */
+}
+
+.contact__form-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: var(--shadow);
+  background-color: var(--container-color);
+  color: var(--text-color);
+  border: none;
+  outline: none;
+  border-radius: var(--border-radius);
+  padding: 0.625rem 1.875rem;
+}
+
+/* Override for textarea */
+.contact__form-textarea textarea.contact__form-input {
+  position: static; /* Remove absolute */
+  height: auto;     /* Let rows control height */
+  padding: 0.625rem 1.875rem;
+  resize: vertical; /* Allow user to resize vertically */
+  width: 100%;
+}
+
+/* ====== RESPONSIVE STYLES ====== */
+
+/* Tablets (≤992px) */
+@media (max-width: 992px) {
+  .contact__container {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  .contact__form-group {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+  }
+
+  .contact.section {
+    padding: 3rem 1rem;
+  }
+}
+
+/* Mobiles (≤576px) */
+@media (max-width: 576px) {
+  .contact__form-input {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .contact__form-div {
+    height: auto;
+  }
+
+  .contact__title {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--first-color-alt);
 }
